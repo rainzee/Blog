@@ -23,7 +23,7 @@ export default {
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-07-23T19:21:48.000Z",
+    'date': "2023-07-23T19:31:08.000Z",
     'updated': null,
     'excerpt': "This is the first post build from Pagic.",
     'cover': undefined,
@@ -37,7 +37,7 @@ export default {
                 "pagePath": "posts/init-pagic.md",
                 "title": "Init Pagic",
                 "link": "posts/init-pagic.html",
-                "date": "2023-07-23T19:21:48.000Z",
+                "date": "2023-07-23T19:31:08.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [
