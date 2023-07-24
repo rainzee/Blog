@@ -19,7 +19,7 @@ export default {
                 "pagePath": "posts/init-pagic.md",
                 "title": "Init Pagic",
                 "link": "posts/init-pagic.html",
-                "date": "2023-07-24T07:12:50.000Z",
+                "date": "2023-07-24T07:43:10.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [
@@ -35,6 +35,10 @@ export default {
         "tags": [
             {
                 "name": "Coding",
+                "count": 1
+            },
+            {
+                "name": "Git",
                 "count": 1
             },
             {
