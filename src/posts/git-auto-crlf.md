@@ -53,5 +53,7 @@ docs/releases/*.txt merge=union
 ## Reference
 
 [Mind the End of Your Line ∙ Adaptive Patchwork](https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/)
+
 [配置 Git 处理行结束符 - GitHub Docs](https://docs.github.com/zh/get-started/getting-started-with-git/configuring-git-to-handle-line-endings#further-reading)
+
 [git如何避免”warning: LF will be replaced by CRLF“提示？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/50862500/answer/123197258)
