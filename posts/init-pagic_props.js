@@ -23,7 +23,7 @@ export default {
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-07-24T07:56:55.000Z",
+    'date': "2023-07-24T08:54:08.000Z",
     'updated': null,
     'excerpt': "This is the first post build from Pagic.",
     'cover': undefined,
@@ -37,7 +37,7 @@ export default {
                 "pagePath": "posts/init-pagic.md",
                 "title": "Init Pagic",
                 "link": "posts/init-pagic.html",
-                "date": "2023-07-24T07:56:55.000Z",
+                "date": "2023-07-24T08:54:08.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [
@@ -78,6 +78,36 @@ export default {
                     "Python"
                 ],
                 "excerpt": "完全等价的代码 一般而言，在不改变任何代码行为，或者完全等价的代码来说，更短的代码，也许意味着更好地性能，或者更紧凑的结构，但是牺牲了可读性和可维护性，在工程上来说，这种交易一般是不划算的，考虑下面两段代码： te..."
+            },
+            {
+                "pagePath": "posts/after-a-thousand-calls-it-comes-out.md",
+                "title": "千呼万唤始出来",
+                "link": "posts/after-a-thousand-calls-it-comes-out.html",
+                "date": "2013-07-27T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Typecho"
+                ],
+                "excerpt": "原因 一直就有在网上记录生活的冲动，以前想着用新浪或者点点、lofter之类的免费博客，但是用过之后发现不是审核严重，就是自由度太低，什么都不能修改，而且大家的博客都像一样的，毫无特色可言。于是乎就萌生了建立独立博客的..."
+            },
+            {
+                "pagePath": "posts/welcome-typecho.md",
+                "title": "欢迎使用Typecho",
+                "link": "posts/welcome-typecho.html",
+                "date": "2013-04-13T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Typocho"
+                ],
+                "excerpt": "如果您看到这篇文章，表示您的blog已经安装成功。"
             }
         ],
         "categories": [],
@@ -95,7 +125,15 @@ export default {
                 "count": 1
             },
             {
+                "name": "Typecho",
+                "count": 1
+            },
+            {
                 "name": "TypeScript",
+                "count": 1
+            },
+            {
+                "name": "Typocho",
                 "count": 1
             }
         ]

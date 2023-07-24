@@ -1,34 +1,34 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/TypeScript/",
+    'pagePath': "tags/Typecho/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/TypeScript/index.html",
+    'outputPath': "tags/Typecho/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@18.2.0/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
     'footer': React.createElement("footer", null),
-    'title': "TypeScript",
+    'title': "Typecho",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/init-pagic.md",
-                "title": "Init Pagic",
-                "link": "posts/init-pagic.html",
-                "date": "2023-07-24T08:54:08.000Z",
+                "pagePath": "posts/after-a-thousand-calls-it-comes-out.md",
+                "title": "千呼万唤始出来",
+                "link": "posts/after-a-thousand-calls-it-comes-out.html",
+                "date": "2013-07-27T00:00:00.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [
                     "rainzee"
                 ],
                 "tags": [
-                    "TypeScript"
+                    "Typecho"
                 ],
-                "excerpt": "This is the first post build from Pagic."
+                "excerpt": "原因 一直就有在网上记录生活的冲动，以前想着用新浪或者点点、lofter之类的免费博客，但是用过之后发现不是审核严重，就是自由度太低，什么都不能修改，而且大家的博客都像一样的，毫无特色可言。于是乎就萌生了建立独立博客的..."
             }
         ],
         "categories": [],

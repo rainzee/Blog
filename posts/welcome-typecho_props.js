@@ -1,12 +1,12 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "archives/README.md",
-    'layoutPath': "archives/_layout.tsx",
-    'outputPath': "archives/index.html",
-    'title': undefined,
+    'pagePath': "posts/welcome-typecho.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/welcome-typecho.html",
+    'title': "欢迎使用Typecho",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h1>欢迎使用Typecho</h1>\n<p>如果您看到这篇文章，表示您的blog已经安装成功。</p>'
         } }),
     'head': null,
     'script': React.createElement(React.Fragment, null,
@@ -14,21 +14,24 @@ export default {
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
     'footer': React.createElement("footer", null),
-    'contentTitle': undefined,
+    'contentTitle': React.createElement("h1", { key: "0" }, "\u6B22\u8FCE\u4F7F\u7528Typecho"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<p>如果您看到这篇文章，表示您的blog已经安装成功。</p>'
         } }),
     'toc': null,
     'author': "rainzee",
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-07-24T08:54:08.000Z",
+    'date': "2013-04-13T00:00:00.000Z",
     'updated': null,
-    'excerpt': "",
+    'excerpt': "如果您看到这篇文章，表示您的blog已经安装成功。",
     'cover': undefined,
+    'tags': [
+        "Typocho"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/init-pagic.md",
