@@ -23,7 +23,7 @@ export default {
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-07-24T08:54:08.000Z",
+    'date': "2023-07-24T11:19:48.000Z",
     'updated': null,
     'excerpt': "",
     'cover': undefined,
@@ -34,7 +34,7 @@ export default {
                 "pagePath": "posts/init-pagic.md",
                 "title": "Init Pagic",
                 "link": "posts/init-pagic.html",
-                "date": "2023-07-24T08:54:08.000Z",
+                "date": "2023-07-24T11:19:48.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [
@@ -102,13 +102,17 @@ export default {
                     "rainzee"
                 ],
                 "tags": [
-                    "Typocho"
+                    "Typecho"
                 ],
                 "excerpt": "如果您看到这篇文章，表示您的blog已经安装成功。"
             }
         ],
         "categories": [],
         "tags": [
+            {
+                "name": "Typecho",
+                "count": 2
+            },
             {
                 "name": "Coding",
                 "count": 1
@@ -122,15 +126,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "Typecho",
-                "count": 1
-            },
-            {
                 "name": "TypeScript",
-                "count": 1
-            },
-            {
-                "name": "Typocho",
                 "count": 1
             }
         ]

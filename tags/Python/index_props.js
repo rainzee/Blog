@@ -35,6 +35,10 @@ export default {
         "categories": [],
         "tags": [
             {
+                "name": "Typecho",
+                "count": 2
+            },
+            {
                 "name": "Coding",
                 "count": 1
             },
@@ -47,15 +51,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "Typecho",
-                "count": 1
-            },
-            {
                 "name": "TypeScript",
-                "count": 1
-            },
-            {
-                "name": "Typocho",
                 "count": 1
             }
         ]

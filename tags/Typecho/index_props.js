@@ -29,10 +29,29 @@ export default {
                     "Typecho"
                 ],
                 "excerpt": "原因 一直就有在网上记录生活的冲动，以前想着用新浪或者点点、lofter之类的免费博客，但是用过之后发现不是审核严重，就是自由度太低，什么都不能修改，而且大家的博客都像一样的，毫无特色可言。于是乎就萌生了建立独立博客的..."
+            },
+            {
+                "pagePath": "posts/welcome-typecho.md",
+                "title": "欢迎使用Typecho",
+                "link": "posts/welcome-typecho.html",
+                "date": "2013-04-13T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Typecho"
+                ],
+                "excerpt": "如果您看到这篇文章，表示您的blog已经安装成功。"
             }
         ],
         "categories": [],
         "tags": [
+            {
+                "name": "Typecho",
+                "count": 2
+            },
             {
                 "name": "Coding",
                 "count": 1
@@ -46,15 +65,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "Typecho",
-                "count": 1
-            },
-            {
                 "name": "TypeScript",
-                "count": 1
-            },
-            {
-                "name": "Typocho",
                 "count": 1
             }
         ]
