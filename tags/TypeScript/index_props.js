@@ -19,7 +19,7 @@ export default {
                 "pagePath": "posts/init-pagic.md",
                 "title": "Init Pagic",
                 "link": "posts/init-pagic.html",
-                "date": "2023-07-24T07:43:10.000Z",
+                "date": "2023-07-24T07:56:55.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [

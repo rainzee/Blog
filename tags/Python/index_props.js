@@ -19,7 +19,7 @@ export default {
                 "pagePath": "posts/code-readability-and-length-trade-offs.md",
                 "title": "代码可读性和长度的取舍",
                 "link": "posts/code-readability-and-length-trade-offs.html",
-                "date": "2023-07-24T07:43:10.000Z",
+                "date": "2023-01-26T00:00:00.000Z",
                 "updated": null,
                 "author": "rainzee",
                 "contributors": [
