@@ -1,0 +1,88 @@
+import projectConfig from '/pagic.config.js';
+export default {
+    config: { "root": "/", ...projectConfig, branch: 'main' },
+    'pagePath': "posts/code-readability-and-length-trade-offs.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/code-readability-and-length-trade-offs.html",
+    'title': "代码可读性和长度的取舍",
+    'content': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h1>代码可读性和长度的取舍</h1>\n<h2 id="%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E7%9A%84%E4%BB%A3%E7%A0%81">完全等价的代码<a class="anchor" href="#%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E7%9A%84%E4%BB%A3%E7%A0%81">§</a></h2>\n<p>一般而言，在不改变任何代码行为，或者完全等价的代码来说，更短的代码，也许意味着更好地性能，或者更紧凑的结构，但是牺牲了可读性和可维护性，在工程上来说，这种交易一般是不划算的，考虑下面两段代码：</p>\n<pre class="language-python"><code class="language-python">teams <span class="token operator">=</span> team_input<span class="token punctuation">(</span><span class="token punctuation">)</span>\nschedule <span class="token operator">=</span> make_schedule<span class="token punctuation">(</span>teams<span class="token punctuation">)</span>\nprint_schedule<span class="token punctuation">(</span>schedule<span class="token punctuation">)</span>\n</code></pre>\n<pre class="language-python"><code class="language-python">print_schedule<span class="token punctuation">(</span>make_schedule<span class="token punctuation">(</span>team_input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>\n</code></pre>\n<p>第二种也许比第一种在性能上更好，但是我个人认为这种性能甚至没有环境噪音的影响大，但是第二种代码完全牺牲了可读性和可维护性，也许经过了一段时间，自己都不知道这是什么，要跟着调用从头看下来才知道，这种几乎不可察觉的性能优化，牺牲了可读性和可维护性，是完全不可取的，在工程上是一种灾难。</p>'
+        } }),
+    'head': null,
+    'script': React.createElement(React.Fragment, null,
+        React.createElement("script", { src: "https://cdn.pagic.org/react@18.2.0/umd/react.production.min.js" }),
+        React.createElement("script", { src: "https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js" }),
+        React.createElement("script", { src: "/index.js", type: "module" })),
+    'footer': React.createElement("footer", null),
+    'contentTitle': React.createElement("h1", { key: "0" }, "\u4EE3\u7801\u53EF\u8BFB\u6027\u548C\u957F\u5EA6\u7684\u53D6\u820D"),
+    'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h2 id="%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E7%9A%84%E4%BB%A3%E7%A0%81">完全等价的代码<a class="anchor" href="#%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E7%9A%84%E4%BB%A3%E7%A0%81">§</a></h2>\n<p>一般而言，在不改变任何代码行为，或者完全等价的代码来说，更短的代码，也许意味着更好地性能，或者更紧凑的结构，但是牺牲了可读性和可维护性，在工程上来说，这种交易一般是不划算的，考虑下面两段代码：</p>\n<pre class="language-python"><code class="language-python">teams <span class="token operator">=</span> team_input<span class="token punctuation">(</span><span class="token punctuation">)</span>\nschedule <span class="token operator">=</span> make_schedule<span class="token punctuation">(</span>teams<span class="token punctuation">)</span>\nprint_schedule<span class="token punctuation">(</span>schedule<span class="token punctuation">)</span>\n</code></pre>\n<pre class="language-python"><code class="language-python">print_schedule<span class="token punctuation">(</span>make_schedule<span class="token punctuation">(</span>team_input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>\n</code></pre>\n<p>第二种也许比第一种在性能上更好，但是我个人认为这种性能甚至没有环境噪音的影响大，但是第二种代码完全牺牲了可读性和可维护性，也许经过了一段时间，自己都不知道这是什么，要跟着调用从头看下来才知道，这种几乎不可察觉的性能优化，牺牲了可读性和可维护性，是完全不可取的，在工程上是一种灾难。</p>'
+        } }),
+    'toc': React.createElement("nav", { key: "0", className: "toc" },
+        React.createElement("ol", null,
+            React.createElement("li", null,
+                React.createElement("a", { href: "#%E5%AE%8C%E5%85%A8%E7%AD%89%E4%BB%B7%E7%9A%84%E4%BB%A3%E7%A0%81" }, "\u5B8C\u5168\u7B49\u4EF7\u7684\u4EE3\u7801")))),
+    'author': "rainzee",
+    'contributors': [
+        "rainzee"
+    ],
+    'date': "2023-07-24T07:12:50.000Z",
+    'updated': null,
+    'excerpt': "完全等价的代码 一般而言，在不改变任何代码行为，或者完全等价的代码来说，更短的代码，也许意味着更好地性能，或者更紧凑的结构，但是牺牲了可读性和可维护性，在工程上来说，这种交易一般是不划算的，考虑下面两段代码： te...",
+    'cover': undefined,
+    'tags': [
+        "Coding",
+        "Python"
+    ],
+    'blog': {
+        "isPost": true,
+        "posts": [
+            {
+                "pagePath": "posts/init-pagic.md",
+                "title": "Init Pagic",
+                "link": "posts/init-pagic.html",
+                "date": "2023-07-24T07:12:50.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "TypeScript"
+                ],
+                "excerpt": "This is the first post build from Pagic."
+            },
+            {
+                "pagePath": "posts/code-readability-and-length-trade-offs.md",
+                "title": "代码可读性和长度的取舍",
+                "link": "posts/code-readability-and-length-trade-offs.html",
+                "date": "2023-07-24T07:12:50.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Coding",
+                    "Python"
+                ],
+                "excerpt": "完全等价的代码 一般而言，在不改变任何代码行为，或者完全等价的代码来说，更短的代码，也许意味着更好地性能，或者更紧凑的结构，但是牺牲了可读性和可维护性，在工程上来说，这种交易一般是不划算的，考虑下面两段代码： te..."
+            }
+        ],
+        "categories": [],
+        "tags": [
+            {
+                "name": "Coding",
+                "count": 1
+            },
+            {
+                "name": "Python",
+                "count": 1
+            },
+            {
+                "name": "TypeScript",
+                "count": 1
+            }
+        ]
+    }
+};
