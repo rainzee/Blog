@@ -1,7 +1,7 @@
 ---
 date: 2013-04-13
 tags:
-  - Typocho
+  - Typecho
 ---
 
 # 欢迎使用Typecho
