@@ -48,88 +48,87 @@ tags:
 
 ## 支持的插件
 
-1. **anti-bloat**
-   - 修补不必要的导入，来自库模块源代码。
-
-2. **data-files**
+- **anti-bloat**
+    - 修补不必要的导入，来自库模块源代码。
+- **data-files**
    - 包括包配置文件指定的数据文件。
 
-3. **delvewheel**
+- **delvewheel**
    - 支持使用delvewheel包的"support"，适用于独立模式。
 
-4. **dill-compat**
+- **dill-compat**
    - 用于与"dill"包兼容性的支持。
 
-5. **dll-files**
+- **dll-files**
    - 包括DLL，根据包配置文件。
 
-6. **enum-compat**
+- **enum-compat**
    - 支持Python 2 和"enum"包。
 
-7. **eventlet**
+- **eventlet**
    - 支持"eventlet"依赖项和对"dns"包的猴子补丁。
 
-8. **gevent**
+- **gevent**
    - 为'gevent'包提供支持。
 
-9. **gi**
+- **gi**
    - 支持GI包typelib依赖。
 
-10. **glfw**
+- **glfw**
    - OpenGL和'glfw'包的支持，适用于独立模式。
 
-11. **implicit-imports**
+- **implicit-imports**
    - 根据包配置文件提供包的隐式导入。
 
-12. **kivy**
+- **kivy**
    - 为'kivy'包提供支持。
 
-13. **matplotlib**
+- **matplotlib**
    - 支持'matplotlib'模块。
 
-14. **multiprocessing**
+- **multiprocessing**
    - 支持Python的'multiprocessing'模块。
 
-15. **no-qt**
+- **no-qt**
    - 禁用所有Qt绑定，适用于独立模式。
 
-16. **options-nanny**
+- **options-nanny**
    - 根据包配置文件通知用户潜在问题。
 
-17. **pbr-compat**
+- **pbr-compat**
    - 为'pbr'包在独立模式下提供兼容性支持。
 
-18. **pkg-resources**
+- **pkg-resources**
    - 解决'pkg_resources'的问题。
 
-19. **pmw-freezer**
+- **pmw-freezer**
    - 为'Pmw'包提供支持。
 
-20. **pylint-warnings**
+- **pylint-warnings**
    - 支持PyLint / PyDev的linting源标记。
 
-21. **pyqt5**
+- **pyqt5**
    - 为PyQt5包提供支持。
 
-22. **pyqt6**
+- **pyqt6**
    - 为PyQt6包在独立模式下提供支持。
 
-23. **pyside2**
+- **pyside2**
    - 为PySide2包提供支持。
 
-24. **pyside6**
+- **pyside6**
    - 为PySide6包在独立模式下提供支持。
 
-25. **pywebview**
+- **pywebview**
    - 为'webview'包 (PyPI上的pywebview) 提供支持。
 
-26. **tk-inter**
+- **tk-inter**
    - 支持Python的Tk模块。
 
-27. **transformers**
+- **transformers**
    - 为transformers包提供隐式导入。
 
-28. **upx**
+- **upx**
    - 自动使用UPX压缩创建的二进制文件。
 
 ## Reference
