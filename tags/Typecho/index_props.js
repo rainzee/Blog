@@ -49,6 +49,10 @@ export default {
         "categories": [],
         "tags": [
             {
+                "name": "Python",
+                "count": 2
+            },
+            {
                 "name": "Typecho",
                 "count": 2
             },
@@ -61,7 +65,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "Python",
+                "name": "Nuitka",
                 "count": 1
             },
             {

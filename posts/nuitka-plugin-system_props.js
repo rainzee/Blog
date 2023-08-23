@@ -1,0 +1,168 @@
+import projectConfig from '/pagic.config.js';
+export default {
+    config: { "root": "/", ...projectConfig, branch: 'main' },
+    'pagePath': "posts/nuitka-plugin-system.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/nuitka-plugin-system.html",
+    'title': "Nuitka 插件系统",
+    'content': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h1>Nuitka 插件系统</h1>\n<h2 id="%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F">插件系统<a class="anchor" href="#%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F">§</a></h2>\n<p>插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果显式地启用插件可能会导致预期之外地错误。</p>\n<h2 id="%E6%8F%92%E4%BB%B6%E6%8E%A7%E5%88%B6">插件控制<a class="anchor" href="#%E6%8F%92%E4%BB%B6%E6%8E%A7%E5%88%B6">§</a></h2>\n<ul>\n<li>\n<p><code>--enable-plugin=PLUGIN_NAME</code>: 启用插件。必须是插件名称。使用 <code>--plugin-list</code> 查询完整列表并退出。默认为空。</p>\n</li>\n<li>\n<p><code>--disable-plugin=PLUGIN_NAME</code>: 禁用插件。必须是插件名称。使用 <code>--plugin-list</code> 查询完整列表并退出。大多数标准插件禁用后可能不是一个好主意。默认为空。</p>\n</li>\n<li>\n<p><code>--plugin-no-detection</code>: 插件可以检测是否可能会被使用，然后您可以通过 <code>--disable-plugin=plugin-that-warned</code> 禁用警告，或者您可以使用此选项完全禁用机制，这也会稍微加快编译速度，因为这个检测代码在您确定要使用哪些插件后就是徒劳的。默认关闭。</p>\n</li>\n<li>\n<p><code>--plugin-list</code>: 显示所有可用插件的列表并退出。默认关闭。</p>\n</li>\n<li>\n<p><code>--user-plugin=PATH</code>: 用户插件的文件名。可以多次提供。默认为空。</p>\n</li>\n<li>\n<p><code>--show-source-changes</code>: 显示编译前原始Python文件内容的源更改。主要用于开发插件。默认为False。</p>\n</li>\n</ul>\n<h4 id="anti-bloat-%E6%8F%92%E4%BB%B6%E7%9A%84%E9%80%89%E9%A1%B9"><code>anti-bloat</code> 插件的选项<a class="anchor" href="#anti-bloat-%E6%8F%92%E4%BB%B6%E7%9A%84%E9%80%89%E9%A1%B9">§</a></h4>\n<ul>\n<li>\n<p><code>--show-anti-bloat-changes</code>: 注释插件所做的更改。</p>\n</li>\n<li>\n<p><code>--noinclude-setuptools-mode=NOINCLUDE_SETUPTOOLS_MODE</code>: 当遇到 <code>setuptools</code> 或相关导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。还处理 <code>setuptools_scm</code> 导入。</p>\n</li>\n<li>\n<p><code>--noinclude-pytest-mode=NOINCLUDE_PYTEST_MODE</code>: 当遇到 <code>pytest</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。还处理<code>nose</code>导入。</p>\n</li>\n<li>\n<p><code>--noinclude-unittest-mode=NOINCLUDE_UNITTEST_MODE</code>: 当遇到 <code>unittest</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-IPython-mode=NOINCLUDE_IPYTHON_MODE</code>: 当遇到 <code>IPython</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-dask-mode=NOINCLUDE_DASK_MODE</code>: 当遇到 <code>dask</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-numba-mode=NOINCLUDE_NUMBA_MODE</code>: 当遇到 <code>numba</code> 导入时的处理方式。这个包包含大量依赖项，目前不适用于独立模式。应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-default-mode=NOINCLUDE_DEFAULT_MODE</code>: 实际上提供了上述选项的默认 “warning” 值，可用于将所有这些选项都打开。</p>\n</li>\n<li>\n<p><code>--noinclude-custom-mode=CUSTOM_CHOICES</code>: 当遇到特定导入时的处理方式。格式为模块名称，这应该是一个顶级包，然后是一个选项，例如“error”，“warning”，“nofollow”，例如 <code>PyQt5:error</code>。</p>\n</li>\n</ul>\n<h2 id="%E6%94%AF%E6%8C%81%E7%9A%84%E6%8F%92%E4%BB%B6">支持的插件<a class="anchor" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E6%8F%92%E4%BB%B6">§</a></h2>\n<ol>\n<li>\n<p><strong>anti-bloat</strong></p>\n<ul>\n<li>修补不必要的导入，来自库模块源代码。</li>\n</ul>\n</li>\n<li>\n<p><strong>data-files</strong></p>\n<ul>\n<li>包括包配置文件指定的数据文件。</li>\n</ul>\n</li>\n<li>\n<p><strong>delvewheel</strong></p>\n<ul>\n<li>支持使用delvewheel包的&quot;support&quot;，适用于独立模式。</li>\n</ul>\n</li>\n<li>\n<p><strong>dill-compat</strong></p>\n<ul>\n<li>用于与&quot;dill&quot;包兼容性的支持。</li>\n</ul>\n</li>\n<li>\n<p><strong>dll-files</strong></p>\n<ul>\n<li>包括DLL，根据包配置文件。</li>\n</ul>\n</li>\n<li>\n<p><strong>enum-compat</strong></p>\n<ul>\n<li>支持Python 2 和&quot;enum&quot;包。</li>\n</ul>\n</li>\n<li>\n<p><strong>eventlet</strong></p>\n<ul>\n<li>支持&quot;eventlet&quot;依赖项和对&quot;dns&quot;包的猴子补丁。</li>\n</ul>\n</li>\n<li>\n<p><strong>gevent</strong></p>\n<ul>\n<li>为\'gevent\'包提供支持。</li>\n</ul>\n</li>\n<li>\n<p><strong>gi</strong></p>\n<ul>\n<li>支持GI包typelib依赖。</li>\n</ul>\n</li>\n<li>\n<p><strong>glfw</strong></p>\n</li>\n</ol>\n<ul>\n<li>OpenGL和\'glfw\'包的支持，适用于独立模式。</li>\n</ul>\n<ol start="11">\n<li><strong>implicit-imports</strong></li>\n</ol>\n<ul>\n<li>根据包配置文件提供包的隐式导入。</li>\n</ul>\n<ol start="12">\n<li><strong>kivy</strong></li>\n</ol>\n<ul>\n<li>为\'kivy\'包提供支持。</li>\n</ul>\n<ol start="13">\n<li><strong>matplotlib</strong></li>\n</ol>\n<ul>\n<li>支持\'matplotlib\'模块。</li>\n</ul>\n<ol start="14">\n<li><strong>multiprocessing</strong></li>\n</ol>\n<ul>\n<li>支持Python的\'multiprocessing\'模块。</li>\n</ul>\n<ol start="15">\n<li><strong>no-qt</strong></li>\n</ol>\n<ul>\n<li>禁用所有Qt绑定，适用于独立模式。</li>\n</ul>\n<ol start="16">\n<li><strong>options-nanny</strong></li>\n</ol>\n<ul>\n<li>根据包配置文件通知用户潜在问题。</li>\n</ul>\n<ol start="17">\n<li><strong>pbr-compat</strong></li>\n</ol>\n<ul>\n<li>为\'pbr\'包在独立模式下提供兼容性支持。</li>\n</ul>\n<ol start="18">\n<li><strong>pkg-resources</strong></li>\n</ol>\n<ul>\n<li>解决\'pkg_resources\'的问题。</li>\n</ul>\n<ol start="19">\n<li><strong>pmw-freezer</strong></li>\n</ol>\n<ul>\n<li>为\'Pmw\'包提供支持。</li>\n</ul>\n<ol start="20">\n<li><strong>pylint-warnings</strong></li>\n</ol>\n<ul>\n<li>支持PyLint / PyDev的linting源标记。</li>\n</ul>\n<ol start="21">\n<li><strong>pyqt5</strong></li>\n</ol>\n<ul>\n<li>为PyQt5包提供支持。</li>\n</ul>\n<ol start="22">\n<li><strong>pyqt6</strong></li>\n</ol>\n<ul>\n<li>为PyQt6包在独立模式下提供支持。</li>\n</ul>\n<ol start="23">\n<li><strong>pyside2</strong></li>\n</ol>\n<ul>\n<li>为PySide2包提供支持。</li>\n</ul>\n<ol start="24">\n<li><strong>pyside6</strong></li>\n</ol>\n<ul>\n<li>为PySide6包在独立模式下提供支持。</li>\n</ul>\n<ol start="25">\n<li><strong>pywebview</strong></li>\n</ol>\n<ul>\n<li>为\'webview\'包 (PyPI上的pywebview) 提供支持。</li>\n</ul>\n<ol start="26">\n<li><strong>tk-inter</strong></li>\n</ol>\n<ul>\n<li>支持Python的Tk模块。</li>\n</ul>\n<ol start="27">\n<li><strong>transformers</strong></li>\n</ol>\n<ul>\n<li>为transformers包提供隐式导入。</li>\n</ul>\n<ol start="28">\n<li><strong>upx</strong></li>\n</ol>\n<ul>\n<li>自动使用UPX压缩创建的二进制文件。</li>\n</ul>\n<h2 id="reference">Reference<a class="anchor" href="#reference">§</a></h2>\n<p><a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler documentation</a></p>'
+        } }),
+    'head': null,
+    'script': React.createElement(React.Fragment, null,
+        React.createElement("script", { src: "https://cdn.pagic.org/react@18.2.0/umd/react.production.min.js" }),
+        React.createElement("script", { src: "https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js" }),
+        React.createElement("script", { src: "/index.js", type: "module" })),
+    'footer': React.createElement("footer", null),
+    'contentTitle': React.createElement("h1", { key: "0" }, "Nuitka \u63D2\u4EF6\u7CFB\u7EDF"),
+    'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h2 id="%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F">插件系统<a class="anchor" href="#%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F">§</a></h2>\n<p>插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果显式地启用插件可能会导致预期之外地错误。</p>\n<h2 id="%E6%8F%92%E4%BB%B6%E6%8E%A7%E5%88%B6">插件控制<a class="anchor" href="#%E6%8F%92%E4%BB%B6%E6%8E%A7%E5%88%B6">§</a></h2>\n<ul>\n<li>\n<p><code>--enable-plugin=PLUGIN_NAME</code>: 启用插件。必须是插件名称。使用 <code>--plugin-list</code> 查询完整列表并退出。默认为空。</p>\n</li>\n<li>\n<p><code>--disable-plugin=PLUGIN_NAME</code>: 禁用插件。必须是插件名称。使用 <code>--plugin-list</code> 查询完整列表并退出。大多数标准插件禁用后可能不是一个好主意。默认为空。</p>\n</li>\n<li>\n<p><code>--plugin-no-detection</code>: 插件可以检测是否可能会被使用，然后您可以通过 <code>--disable-plugin=plugin-that-warned</code> 禁用警告，或者您可以使用此选项完全禁用机制，这也会稍微加快编译速度，因为这个检测代码在您确定要使用哪些插件后就是徒劳的。默认关闭。</p>\n</li>\n<li>\n<p><code>--plugin-list</code>: 显示所有可用插件的列表并退出。默认关闭。</p>\n</li>\n<li>\n<p><code>--user-plugin=PATH</code>: 用户插件的文件名。可以多次提供。默认为空。</p>\n</li>\n<li>\n<p><code>--show-source-changes</code>: 显示编译前原始Python文件内容的源更改。主要用于开发插件。默认为False。</p>\n</li>\n</ul>\n<h4 id="anti-bloat-%E6%8F%92%E4%BB%B6%E7%9A%84%E9%80%89%E9%A1%B9"><code>anti-bloat</code> 插件的选项<a class="anchor" href="#anti-bloat-%E6%8F%92%E4%BB%B6%E7%9A%84%E9%80%89%E9%A1%B9">§</a></h4>\n<ul>\n<li>\n<p><code>--show-anti-bloat-changes</code>: 注释插件所做的更改。</p>\n</li>\n<li>\n<p><code>--noinclude-setuptools-mode=NOINCLUDE_SETUPTOOLS_MODE</code>: 当遇到 <code>setuptools</code> 或相关导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。还处理 <code>setuptools_scm</code> 导入。</p>\n</li>\n<li>\n<p><code>--noinclude-pytest-mode=NOINCLUDE_PYTEST_MODE</code>: 当遇到 <code>pytest</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。还处理<code>nose</code>导入。</p>\n</li>\n<li>\n<p><code>--noinclude-unittest-mode=NOINCLUDE_UNITTEST_MODE</code>: 当遇到 <code>unittest</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-IPython-mode=NOINCLUDE_IPYTHON_MODE</code>: 当遇到 <code>IPython</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-dask-mode=NOINCLUDE_DASK_MODE</code>: 当遇到 <code>dask</code> 导入时的处理方式。这个包可能包含大量依赖项，应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-numba-mode=NOINCLUDE_NUMBA_MODE</code>: 当遇到 <code>numba</code> 导入时的处理方式。这个包包含大量依赖项，目前不适用于独立模式。应该绝对避免。</p>\n</li>\n<li>\n<p><code>--noinclude-default-mode=NOINCLUDE_DEFAULT_MODE</code>: 实际上提供了上述选项的默认 “warning” 值，可用于将所有这些选项都打开。</p>\n</li>\n<li>\n<p><code>--noinclude-custom-mode=CUSTOM_CHOICES</code>: 当遇到特定导入时的处理方式。格式为模块名称，这应该是一个顶级包，然后是一个选项，例如“error”，“warning”，“nofollow”，例如 <code>PyQt5:error</code>。</p>\n</li>\n</ul>\n<h2 id="%E6%94%AF%E6%8C%81%E7%9A%84%E6%8F%92%E4%BB%B6">支持的插件<a class="anchor" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E6%8F%92%E4%BB%B6">§</a></h2>\n<ol>\n<li>\n<p><strong>anti-bloat</strong></p>\n<ul>\n<li>修补不必要的导入，来自库模块源代码。</li>\n</ul>\n</li>\n<li>\n<p><strong>data-files</strong></p>\n<ul>\n<li>包括包配置文件指定的数据文件。</li>\n</ul>\n</li>\n<li>\n<p><strong>delvewheel</strong></p>\n<ul>\n<li>支持使用delvewheel包的&quot;support&quot;，适用于独立模式。</li>\n</ul>\n</li>\n<li>\n<p><strong>dill-compat</strong></p>\n<ul>\n<li>用于与&quot;dill&quot;包兼容性的支持。</li>\n</ul>\n</li>\n<li>\n<p><strong>dll-files</strong></p>\n<ul>\n<li>包括DLL，根据包配置文件。</li>\n</ul>\n</li>\n<li>\n<p><strong>enum-compat</strong></p>\n<ul>\n<li>支持Python 2 和&quot;enum&quot;包。</li>\n</ul>\n</li>\n<li>\n<p><strong>eventlet</strong></p>\n<ul>\n<li>支持&quot;eventlet&quot;依赖项和对&quot;dns&quot;包的猴子补丁。</li>\n</ul>\n</li>\n<li>\n<p><strong>gevent</strong></p>\n<ul>\n<li>为\'gevent\'包提供支持。</li>\n</ul>\n</li>\n<li>\n<p><strong>gi</strong></p>\n<ul>\n<li>支持GI包typelib依赖。</li>\n</ul>\n</li>\n<li>\n<p><strong>glfw</strong></p>\n</li>\n</ol>\n<ul>\n<li>OpenGL和\'glfw\'包的支持，适用于独立模式。</li>\n</ul>\n<ol start="11">\n<li><strong>implicit-imports</strong></li>\n</ol>\n<ul>\n<li>根据包配置文件提供包的隐式导入。</li>\n</ul>\n<ol start="12">\n<li><strong>kivy</strong></li>\n</ol>\n<ul>\n<li>为\'kivy\'包提供支持。</li>\n</ul>\n<ol start="13">\n<li><strong>matplotlib</strong></li>\n</ol>\n<ul>\n<li>支持\'matplotlib\'模块。</li>\n</ul>\n<ol start="14">\n<li><strong>multiprocessing</strong></li>\n</ol>\n<ul>\n<li>支持Python的\'multiprocessing\'模块。</li>\n</ul>\n<ol start="15">\n<li><strong>no-qt</strong></li>\n</ol>\n<ul>\n<li>禁用所有Qt绑定，适用于独立模式。</li>\n</ul>\n<ol start="16">\n<li><strong>options-nanny</strong></li>\n</ol>\n<ul>\n<li>根据包配置文件通知用户潜在问题。</li>\n</ul>\n<ol start="17">\n<li><strong>pbr-compat</strong></li>\n</ol>\n<ul>\n<li>为\'pbr\'包在独立模式下提供兼容性支持。</li>\n</ul>\n<ol start="18">\n<li><strong>pkg-resources</strong></li>\n</ol>\n<ul>\n<li>解决\'pkg_resources\'的问题。</li>\n</ul>\n<ol start="19">\n<li><strong>pmw-freezer</strong></li>\n</ol>\n<ul>\n<li>为\'Pmw\'包提供支持。</li>\n</ul>\n<ol start="20">\n<li><strong>pylint-warnings</strong></li>\n</ol>\n<ul>\n<li>支持PyLint / PyDev的linting源标记。</li>\n</ul>\n<ol start="21">\n<li><strong>pyqt5</strong></li>\n</ol>\n<ul>\n<li>为PyQt5包提供支持。</li>\n</ul>\n<ol start="22">\n<li><strong>pyqt6</strong></li>\n</ol>\n<ul>\n<li>为PyQt6包在独立模式下提供支持。</li>\n</ul>\n<ol start="23">\n<li><strong>pyside2</strong></li>\n</ol>\n<ul>\n<li>为PySide2包提供支持。</li>\n</ul>\n<ol start="24">\n<li><strong>pyside6</strong></li>\n</ol>\n<ul>\n<li>为PySide6包在独立模式下提供支持。</li>\n</ul>\n<ol start="25">\n<li><strong>pywebview</strong></li>\n</ol>\n<ul>\n<li>为\'webview\'包 (PyPI上的pywebview) 提供支持。</li>\n</ul>\n<ol start="26">\n<li><strong>tk-inter</strong></li>\n</ol>\n<ul>\n<li>支持Python的Tk模块。</li>\n</ul>\n<ol start="27">\n<li><strong>transformers</strong></li>\n</ol>\n<ul>\n<li>为transformers包提供隐式导入。</li>\n</ul>\n<ol start="28">\n<li><strong>upx</strong></li>\n</ol>\n<ul>\n<li>自动使用UPX压缩创建的二进制文件。</li>\n</ul>\n<h2 id="reference">Reference<a class="anchor" href="#reference">§</a></h2>\n<p><a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler documentation</a></p>'
+        } }),
+    'toc': React.createElement("nav", { key: "0", className: "toc" },
+        React.createElement("ol", null,
+            React.createElement("li", null,
+                React.createElement("a", { href: "#%E6%8F%92%E4%BB%B6%E7%B3%BB%E7%BB%9F" }, "\u63D2\u4EF6\u7CFB\u7EDF")),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#%E6%8F%92%E4%BB%B6%E6%8E%A7%E5%88%B6" }, "\u63D2\u4EF6\u63A7\u5236"),
+                React.createElement("ol", null)),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#%E6%94%AF%E6%8C%81%E7%9A%84%E6%8F%92%E4%BB%B6" }, "\u652F\u6301\u7684\u63D2\u4EF6")),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#reference" }, "Reference")))),
+    'author': "rainzee",
+    'contributors': [
+        "rainzee"
+    ],
+    'date': "2023-08-23T00:00:00.000Z",
+    'updated': null,
+    'excerpt': "插件系统 插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果显式地启用插件可能会导致预期之外地错误。 插件控制 - --enable-plugin=PLUGIN_NAME: 启用插件。...",
+    'cover': undefined,
+    'tags': [
+        "Python",
+        "Nuitka"
+    ],
+    'blog': {
+        "isPost": true,
+        "posts": [
+            {
+                "pagePath": "posts/init-pagic.md",
+                "title": "Init Pagic",
+                "link": "posts/init-pagic.html",
+                "date": "2023-08-23T01:16:36.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "TypeScript"
+                ],
+                "excerpt": "This is the first post build from Pagic."
+            },
+            {
+                "pagePath": "posts/nuitka-plugin-system.md",
+                "title": "Nuitka 插件系统",
+                "link": "posts/nuitka-plugin-system.html",
+                "date": "2023-08-23T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Python",
+                    "Nuitka"
+                ],
+                "excerpt": "插件系统 插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果显式地启用插件可能会导致预期之外地错误。 插件控制 - --enable-plugin=PLUGIN_NAME: 启用插件。..."
+            },
+            {
+                "pagePath": "posts/git-auto-crlf.md",
+                "title": "LF will be replaced by CRLF",
+                "link": "posts/git-auto-crlf.html",
+                "date": "2023-01-29T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Git"
+                ],
+                "excerpt": "警告出现的原因 Git 在 Windows 上的的 core.autocrlf 的默认值是 true 这导致了Git会始终尝试自动转换换行符 AUTO CRLF工作方式 在GIT中，当设置 * text=auto 或者 core.autocrlf = true 的时候，意味着，我们采用LF做为标准，..."
+            },
+            {
+                "pagePath": "posts/code-readability-and-length-trade-offs.md",
+                "title": "代码可读性和长度的取舍",
+                "link": "posts/code-readability-and-length-trade-offs.html",
+                "date": "2023-01-26T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Coding",
+                    "Python"
+                ],
+                "excerpt": "完全等价的代码 一般而言，在不改变任何代码行为，或者完全等价的代码来说，更短的代码，也许意味着更好地性能，或者更紧凑的结构，但是牺牲了可读性和可维护性，在工程上来说，这种交易一般是不划算的，考虑下面两段代码： te..."
+            },
+            {
+                "pagePath": "posts/after-a-thousand-calls-it-comes-out.md",
+                "title": "千呼万唤始出来",
+                "link": "posts/after-a-thousand-calls-it-comes-out.html",
+                "date": "2013-07-27T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Typecho"
+                ],
+                "excerpt": "原因 一直就有在网上记录生活的冲动，以前想着用新浪或者点点、lofter之类的免费博客，但是用过之后发现不是审核严重，就是自由度太低，什么都不能修改，而且大家的博客都像一样的，毫无特色可言。于是乎就萌生了建立独立博客的..."
+            },
+            {
+                "pagePath": "posts/welcome-typecho.md",
+                "title": "欢迎使用Typecho",
+                "link": "posts/welcome-typecho.html",
+                "date": "2013-04-13T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Typecho"
+                ],
+                "excerpt": "如果您看到这篇文章，表示您的blog已经安装成功。"
+            }
+        ],
+        "categories": [],
+        "tags": [
+            {
+                "name": "Python",
+                "count": 2
+            },
+            {
+                "name": "Typecho",
+                "count": 2
+            },
+            {
+                "name": "Coding",
+                "count": 1
+            },
+            {
+                "name": "Git",
+                "count": 1
+            },
+            {
+                "name": "Nuitka",
+                "count": 1
+            },
+            {
+                "name": "TypeScript",
+                "count": 1
+            }
+        ]
+    }
+};
