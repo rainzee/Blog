@@ -34,21 +34,6 @@ export default {
         "isPost": true,
         "posts": [
             {
-                "pagePath": "posts/init-pagic.md",
-                "title": "Init Pagic",
-                "link": "posts/init-pagic.html",
-                "date": "2023-08-23T01:16:36.000Z",
-                "updated": null,
-                "author": "rainzee",
-                "contributors": [
-                    "rainzee"
-                ],
-                "tags": [
-                    "TypeScript"
-                ],
-                "excerpt": "This is the first post build from Pagic."
-            },
-            {
                 "pagePath": "posts/nuitka-plugin-system.md",
                 "title": "Nuitka 插件系统",
                 "link": "posts/nuitka-plugin-system.html",
@@ -63,6 +48,21 @@ export default {
                     "Nuitka"
                 ],
                 "excerpt": "插件系统 插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果显式地启用插件可能会导致预期之外地错误。 插件控制 - --enable-plugin=PLUGIN_NAME: 启用插件。..."
+            },
+            {
+                "pagePath": "posts/init-pagic.md",
+                "title": "Init Pagic",
+                "link": "posts/init-pagic.html",
+                "date": "2023-07-01T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "TypeScript"
+                ],
+                "excerpt": "This is the first post build from Pagic."
             },
             {
                 "pagePath": "posts/git-auto-crlf.md",
