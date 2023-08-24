@@ -50,6 +50,10 @@ export default {
         "tags": [
             {
                 "name": "Python",
+                "count": 3
+            },
+            {
+                "name": "Nuitka",
                 "count": 2
             },
             {
@@ -62,10 +66,6 @@ export default {
             },
             {
                 "name": "Git",
-                "count": 1
-            },
-            {
-                "name": "Nuitka",
                 "count": 1
             },
             {

@@ -23,13 +23,29 @@ export default {
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-08-24T13:39:17.000Z",
+    'date': "2023-08-24T14:16:33.000Z",
     'updated': null,
     'excerpt': "",
     'cover': undefined,
     'blog': {
         "isPost": false,
         "posts": [
+            {
+                "pagePath": "posts/nuitka-multi-os-support.md",
+                "title": "Nuitka 多操作系统支持",
+                "link": "posts/nuitka-multi-os-support.html",
+                "date": "2023-08-24T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Python",
+                    "Nuitka"
+                ],
+                "excerpt": "Nuitka 的跨平台支持 Nuitka 是跨平台支持的，对 Windows macOS 和 Linux 均有良好的支持，除了提供通用的操作系统支持之外，还针对三个操作系统做了特定控制的支持。下面将一一介绍。 通用操作系统控制 - --disable-console 在..."
+            },
             {
                 "pagePath": "posts/nuitka-plugin-system.md",
                 "title": "Nuitka 插件系统",
@@ -127,6 +143,10 @@ export default {
         "tags": [
             {
                 "name": "Python",
+                "count": 3
+            },
+            {
+                "name": "Nuitka",
                 "count": 2
             },
             {
@@ -139,10 +159,6 @@ export default {
             },
             {
                 "name": "Git",
-                "count": 1
-            },
-            {
-                "name": "Nuitka",
                 "count": 1
             },
             {
