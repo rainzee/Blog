@@ -23,7 +23,7 @@ export default {
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-08-23T01:42:07.000Z",
+    'date': "2023-08-24T13:39:17.000Z",
     'updated': null,
     'excerpt': "",
     'cover': undefined,
@@ -44,7 +44,7 @@ export default {
                     "Python",
                     "Nuitka"
                 ],
-                "excerpt": "插件系统 插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果显式地启用插件可能会导致预期之外地错误。 插件控制 - --enable-plugin=PLUGIN_NAME: 启用插件。..."
+                "excerpt": "插件系统 插件可用于自定义和优化 Nuitka 编译的行为，根据项目的需求选择适当的插件以获得最佳性能和功能。在某些情况下，如果未显式地启用插件可能会导致预期之外地错误。 插件控制 - --enable-plugin=PLUGIN_NAME: 启用插件..."
             },
             {
                 "pagePath": "posts/init-pagic.md",
