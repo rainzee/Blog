@@ -1,0 +1,41 @@
+<!doctype html><html class=""><head>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="Coding For Living."/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/><meta data-react-helmet="true" property="og:title" content="Nuitka 版本元数据 · Rainzee&#x27;s Blog"/><meta data-react-helmet="true" property="og:description" content="Coding For Living."/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:site" content="@RainzeeWang"/>
+<title data-react-helmet="true">Nuitka 版本元数据 · Rainzee&#x27;s Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">Rainzee&#x27;s Blog</a><aside class="hide_on_mobile"><div class="aside_card"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">Rainzee&#x27;s Blog</a></h1><p class="description">Coding For Living.</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/rainzee" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:rainzee.w@gmail.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li class="flex_center"><a class="czs-twitter" href="https://twitter.com/RainzeeWang" target="_blank" style="background-image:url(&quot;/assets/czs-twitter.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>文章</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li></ul></nav></div><nav class="toc"><ol><li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">什么是版本元数据</a></li><li><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">二进制版本信息</a></li><li><a href="#reference">Reference</a></li></ol></nav></aside><section class="main"><h1>Nuitka 版本元数据</h1><div class="main_post_meta"><time dateTime="Fri Aug 25 2023 00:00:00 GMT+0000 (Coordinated Universal Time)">2023-08-25</time> · rainzee</div><article><h2 id="%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">什么是版本元数据<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">§</a></h2>
+<p>版本元数据就是用来描述二进制文件的信息，版本等数据的，例如下面在 Windows 上的属性截图，在不同的操作系统上都可以提供对可执行文件的元数据支持。</p>
+<p><img src="../assets/binary-metadata.png" alt="binary-metadata"></p>
+<p>在 Nuitka 中，允许你进行二进制版本信息控制。</p>
+<h2 id="%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">二进制版本信息<a class="anchor" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">§</a></h2>
+<ul>
+<li>
+<p><code>--company-name=COMPANY_NAME</code>  在版本信息中使用的公司名称。默认未使用。</p>
+</li>
+<li>
+<p><code>--product-name=PRODUCT_NAME</code>  在版本信息中使用的产品名称。默认为二进制文件的基本文件名。</p>
+</li>
+<li>
+<p><code>--file-version=FILE_VERSION</code>  在版本信息中使用的文件版本。必须是最多4个数字的序列，例如1.0或1.0.0.0，不允许更多的数字，也不允许字符串。默认未使用。</p>
+</li>
+<li>
+<p><code>--product-version=PRODUCT_VERSION</code>  在版本信息中使用的产品版本。与文件版本的规则相同。默认未使用。</p>
+</li>
+<li>
+<p><code>--file-description=FILE_DESCRIPTION</code>  在版本信息中使用的文件描述（目前仅在 Windows 上可用）。默认情况下为二进制文件名。</p>
+</li>
+<li>
+<p><code>--copyright=COPYRIGHT_TEXT</code>  在版本信息中使用的版权信息（目前仅适用于 Windows）。默认未使用。</p>
+</li>
+<li>
+<p><code>--trademarks=TRADEMARK_TEXT</code>  在版本信息中使用的商标信息（目前仅适用于 Windows）。默认未使用。</p>
+</li>
+</ul>
+<h2 id="reference">Reference<a class="anchor" href="#reference">§</a></h2>
+<p><a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler documentation</a></p></article></section><footer></footer><script src="https://cdn.pagic.org/react@18.2.0/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

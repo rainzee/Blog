@@ -1,12 +1,12 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "README.md",
-    'layoutPath': "_layout.tsx",
-    'outputPath': "index.html",
-    'title': undefined,
+    'pagePath': "posts/nuitka-binary-metadata.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/nuitka-binary-metadata.html",
+    'title': "Nuitka 版本元数据",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h1>Nuitka 版本元数据</h1>\n<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">什么是版本元数据<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">§</a></h2>\n<p>版本元数据就是用来描述二进制文件的信息，版本等数据的，例如下面在 Windows 上的属性截图，在不同的操作系统上都可以提供对可执行文件的元数据支持。</p>\n<p><img src="../assets/binary-metadata.png" alt="binary-metadata"></p>\n<p>在 Nuitka 中，允许你进行二进制版本信息控制。</p>\n<h2 id="%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">二进制版本信息<a class="anchor" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">§</a></h2>\n<ul>\n<li>\n<p><code>--company-name=COMPANY_NAME</code>  在版本信息中使用的公司名称。默认未使用。</p>\n</li>\n<li>\n<p><code>--product-name=PRODUCT_NAME</code>  在版本信息中使用的产品名称。默认为二进制文件的基本文件名。</p>\n</li>\n<li>\n<p><code>--file-version=FILE_VERSION</code>  在版本信息中使用的文件版本。必须是最多4个数字的序列，例如1.0或1.0.0.0，不允许更多的数字，也不允许字符串。默认未使用。</p>\n</li>\n<li>\n<p><code>--product-version=PRODUCT_VERSION</code>  在版本信息中使用的产品版本。与文件版本的规则相同。默认未使用。</p>\n</li>\n<li>\n<p><code>--file-description=FILE_DESCRIPTION</code>  在版本信息中使用的文件描述（目前仅在 Windows 上可用）。默认情况下为二进制文件名。</p>\n</li>\n<li>\n<p><code>--copyright=COPYRIGHT_TEXT</code>  在版本信息中使用的版权信息（目前仅适用于 Windows）。默认未使用。</p>\n</li>\n<li>\n<p><code>--trademarks=TRADEMARK_TEXT</code>  在版本信息中使用的商标信息（目前仅适用于 Windows）。默认未使用。</p>\n</li>\n</ul>\n<h2 id="reference">Reference<a class="anchor" href="#reference">§</a></h2>\n<p><a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler documentation</a></p>'
         } }),
     'head': null,
     'script': React.createElement(React.Fragment, null,
@@ -14,21 +14,32 @@ export default {
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
     'footer': React.createElement("footer", null),
-    'contentTitle': undefined,
+    'contentTitle': React.createElement("h1", { key: "0" }, "Nuitka \u7248\u672C\u5143\u6570\u636E"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h2 id="%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">什么是版本元数据<a class="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE">§</a></h2>\n<p>版本元数据就是用来描述二进制文件的信息，版本等数据的，例如下面在 Windows 上的属性截图，在不同的操作系统上都可以提供对可执行文件的元数据支持。</p>\n<p><img src="../assets/binary-metadata.png" alt="binary-metadata"></p>\n<p>在 Nuitka 中，允许你进行二进制版本信息控制。</p>\n<h2 id="%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">二进制版本信息<a class="anchor" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF">§</a></h2>\n<ul>\n<li>\n<p><code>--company-name=COMPANY_NAME</code>  在版本信息中使用的公司名称。默认未使用。</p>\n</li>\n<li>\n<p><code>--product-name=PRODUCT_NAME</code>  在版本信息中使用的产品名称。默认为二进制文件的基本文件名。</p>\n</li>\n<li>\n<p><code>--file-version=FILE_VERSION</code>  在版本信息中使用的文件版本。必须是最多4个数字的序列，例如1.0或1.0.0.0，不允许更多的数字，也不允许字符串。默认未使用。</p>\n</li>\n<li>\n<p><code>--product-version=PRODUCT_VERSION</code>  在版本信息中使用的产品版本。与文件版本的规则相同。默认未使用。</p>\n</li>\n<li>\n<p><code>--file-description=FILE_DESCRIPTION</code>  在版本信息中使用的文件描述（目前仅在 Windows 上可用）。默认情况下为二进制文件名。</p>\n</li>\n<li>\n<p><code>--copyright=COPYRIGHT_TEXT</code>  在版本信息中使用的版权信息（目前仅适用于 Windows）。默认未使用。</p>\n</li>\n<li>\n<p><code>--trademarks=TRADEMARK_TEXT</code>  在版本信息中使用的商标信息（目前仅适用于 Windows）。默认未使用。</p>\n</li>\n</ul>\n<h2 id="reference">Reference<a class="anchor" href="#reference">§</a></h2>\n<p><a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler documentation</a></p>'
         } }),
-    'toc': null,
+    'toc': React.createElement("nav", { key: "0", className: "toc" },
+        React.createElement("ol", null,
+            React.createElement("li", null,
+                React.createElement("a", { href: "#%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E5%85%83%E6%95%B0%E6%8D%AE" }, "\u4EC0\u4E48\u662F\u7248\u672C\u5143\u6570\u636E")),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF" }, "\u4E8C\u8FDB\u5236\u7248\u672C\u4FE1\u606F")),
+            React.createElement("li", null,
+                React.createElement("a", { href: "#reference" }, "Reference")))),
     'author': "rainzee",
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-08-25T13:19:14.000Z",
+    'date': "2023-08-25T00:00:00.000Z",
     'updated': null,
-    'excerpt': "",
-    'cover': undefined,
+    'excerpt': "什么是版本元数据 版本元数据就是用来描述二进制文件的信息，版本等数据的，例如下面在 Windows 上的属性截图，在不同的操作系统上都可以提供对可执行文件的元数据支持。 在 Nuitka 中，允许你进行二进制版本信息控制。 二进制...",
+    'cover': "../assets/binary-metadata.png",
+    'tags': [
+        "Python",
+        "Nuitka"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/nuitka-binary-metadata.md",

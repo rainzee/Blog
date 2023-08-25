@@ -16,6 +16,23 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/nuitka-binary-metadata.md",
+                "title": "Nuitka 版本元数据",
+                "link": "posts/nuitka-binary-metadata.html",
+                "date": "2023-08-25T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Python",
+                    "Nuitka"
+                ],
+                "excerpt": "什么是版本元数据 版本元数据就是用来描述二进制文件的信息，版本等数据的，例如下面在 Windows 上的属性截图，在不同的操作系统上都可以提供对可执行文件的元数据支持。 在 Nuitka 中，允许你进行二进制版本信息控制。 二进制...",
+                "cover": "../assets/binary-metadata.png"
+            },
+            {
                 "pagePath": "posts/nuitka-multi-os-support.md",
                 "title": "Nuitka 多操作系统支持",
                 "link": "posts/nuitka-multi-os-support.html",
@@ -52,11 +69,11 @@ export default {
         "tags": [
             {
                 "name": "Python",
-                "count": 3
+                "count": 4
             },
             {
                 "name": "Nuitka",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "Typecho",
