@@ -36,11 +36,11 @@ export default {
         "tags": [
             {
                 "name": "Python",
-                "count": 4
+                "count": 5
             },
             {
                 "name": "Nuitka",
-                "count": 3
+                "count": 4
             },
             {
                 "name": "Typecho",

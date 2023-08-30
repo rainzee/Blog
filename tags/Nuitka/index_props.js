@@ -16,6 +16,22 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/nuitka-advanced-compilation-control.md",
+                "title": "Nuitka 高级编译控制",
+                "link": "posts/nuitka-advanced-compilation-control.html",
+                "date": "2023-08-31T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Python",
+                    "Nuitka"
+                ],
+                "excerpt": "进阶编译控制 从这里开始，我们可以更加精细的控制 Nuitka 的编译控制，包括控制 C 编译器，启用链接优化，控制缓存，启用 C 级别的分析优化，注意，这些控制涉及到 C 级别的控制，如果你不知道自己做什么，那么请不要尝试，可..."
+            },
+            {
                 "pagePath": "posts/nuitka-binary-metadata.md",
                 "title": "Nuitka 版本元数据",
                 "link": "posts/nuitka-binary-metadata.html",
@@ -69,11 +85,11 @@ export default {
         "tags": [
             {
                 "name": "Python",
-                "count": 4
+                "count": 5
             },
             {
                 "name": "Nuitka",
-                "count": 3
+                "count": 4
             },
             {
                 "name": "Typecho",

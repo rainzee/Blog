@@ -1,0 +1,69 @@
+<!doctype html><html class=""><head>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="Coding For Living."/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/><meta data-react-helmet="true" property="og:title" content="Nuitka 高级编译控制 · Rainzee&#x27;s Blog"/><meta data-react-helmet="true" property="og:description" content="Coding For Living."/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:site" content="@RainzeeWang"/>
+<title data-react-helmet="true">Nuitka 高级编译控制 · Rainzee&#x27;s Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">Rainzee&#x27;s Blog</a><aside class="hide_on_mobile"><div class="aside_card"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">Rainzee&#x27;s Blog</a></h1><p class="description">Coding For Living.</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/rainzee" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:rainzee.w@gmail.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li class="flex_center"><a class="czs-twitter" href="https://twitter.com/RainzeeWang" target="_blank" style="background-image:url(&quot;/assets/czs-twitter.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>文章</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li></ul></nav></div><nav class="toc"><ol><li><a href="#%E8%BF%9B%E9%98%B6%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6">进阶编译控制</a></li><li><a href="#c-%E7%BC%96%E8%AF%91%E5%99%A8%E6%8E%A7%E5%88%B6">C 编译器控制</a></li><li><a href="#%E7%BC%93%E5%AD%98%E6%8E%A7%E5%88%B6">缓存控制</a></li><li><a href="#pgo-%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6">PGO 编译控制</a></li><li><a href="#reference">Reference</a></li></ol></nav></aside><section class="main"><h1>Nuitka 高级编译控制</h1><div class="main_post_meta"><time dateTime="Thu Aug 31 2023 00:00:00 GMT+0000 (Coordinated Universal Time)">2023-08-31</time> · rainzee</div><article><h2 id="%E8%BF%9B%E9%98%B6%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6">进阶编译控制<a class="anchor" href="#%E8%BF%9B%E9%98%B6%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6">§</a></h2>
+<p>从这里开始，我们可以更加精细的控制 Nuitka 的编译控制，包括控制 C 编译器，启用链接优化，控制缓存，启用 C 级别的分析优化，注意，这些控制涉及到 C 级别的控制，如果你不知道自己做什么，那么请不要尝试，可能导致无法预知的行为。</p>
+<h2 id="c-%E7%BC%96%E8%AF%91%E5%99%A8%E6%8E%A7%E5%88%B6">C 编译器控制<a class="anchor" href="#c-%E7%BC%96%E8%AF%91%E5%99%A8%E6%8E%A7%E5%88%B6">§</a></h2>
+<ul>
+<li>
+<p><code>--clang</code>  强制使用 clang 编译器。在 Windows 上，这需要一个可用的 Visual Studio版本来支持。默认关闭。</p>
+</li>
+<li>
+<p><code>--mingw64</code>  强制在 Windows 上使用 MinGW64。默认关闭，除非使用 MSYS2 与 MinGW  Python。</p>
+</li>
+<li>
+<p><code>--msvc=MSVC_VERSION</code>  强制在 Windows 上使用特定的 MSVC 版本。允许的值例如 <code>&quot;14.3&quot;（MSVC 2022）</code> 和其他 MSVC 版本号，指定 <code>&quot;list&quot;</code> 以获取已安装的编译器列表，或使用 <code>&quot;latest&quot;</code>。默认为安装的最新 MSVC 版本，否则使用 MinGW64。</p>
+</li>
+<li>
+<p><code>--jobs=N</code>  指定允许的并行 C 编译器作业数量。默认为系统CPU数量。如果编译期间负载过大，可能手动指定，但是我一般在编译的时候去摸鱼。</p>
+</li>
+<li>
+<p><code>--lto=choice</code>  使用链接时间优化（MSVC、gcc、clang）。允许的值为 <code>&quot;yes&quot;</code>、<code>&quot;no&quot;</code> 和 <code>&quot;auto&quot;</code>（已知可用时）。默认为 <code>&quot;auto&quot;</code>。</p>
+</li>
+<li>
+<p><code>--static-libpython=choice</code>  使用 Python 的静态链接库。允许的值为 <code>&quot;yes&quot;</code>、<code>&quot;no&quot;</code> 和 <code>&quot;auto&quot;</code>（已知可用时）。默认为 <code>&quot;auto&quot;</code>。</p>
+</li>
+</ul>
+<h2 id="%E7%BC%93%E5%AD%98%E6%8E%A7%E5%88%B6">缓存控制<a class="anchor" href="#%E7%BC%93%E5%AD%98%E6%8E%A7%E5%88%B6">§</a></h2>
+<ul>
+<li>
+<p><code>--disable-cache=DISABLED_CACHES</code>  禁用选定的缓存，指定 <code>&quot;all&quot;</code> 以禁用所有缓存。目前允许的值包括：<code>&quot;all&quot;</code>、<code>&quot;ccache&quot;</code>、<code>&quot;bytecode&quot;</code>、<code>&quot;dll-dependencies&quot;</code>。可以多次指定或以逗号分隔的方式提供。默认为无。</p>
+</li>
+<li>
+<p><code>--clean-cache=CLEAN_CACHES</code>  在执行之前清除给定的缓存，指定 <code>&quot;all&quot;</code> 以清除所有缓存。目前允许的值包括：<code>&quot;all&quot;</code>、<code>&quot;ccache&quot;</code>、<code>&quot;bytecode&quot;</code>、<code>&quot;dll-dependencies&quot;</code>。可以多次指定或以逗号分隔的方式提供。默认为无。</p>
+</li>
+<li>
+<p><code>--disable-bytecode-cache</code>  不重用模块的依赖分析结果，特别是来自标准库的模块，它们被包含为字节码。等同于 <code>--disable-cache=bytecode</code>。</p>
+</li>
+<li>
+<p><code>--disable-ccache</code>  不尝试使用 ccache（gcc、clang等）或 clcache（MSVC、clangcl）。等同于 <code>--disable-cache=ccache</code>。</p>
+</li>
+<li>
+<p><code>--disable-dll-dependency-cache</code>  禁用依赖关系分析器缓存。这将导致创建分发文件夹的时间大大增加，但如果怀疑缓存可能导致错误，则可能会使用它。等同于 <code>--disable-cache=dll-dependencies</code>。</p>
+</li>
+<li>
+<p><code>--force-dll-dependency-cache-update</code>  用于更新依赖关系分析器缓存。这将导致创建分发文件夹的时间大大增加，但如果怀疑缓存可能导致错误或已知需要更新，则可能会使用它。</p>
+</li>
+</ul>
+<h2 id="pgo-%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6">PGO 编译控制<a class="anchor" href="#pgo-%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6">§</a></h2>
+<ul>
+<li>
+<p><code>--pgo</code>  启用 C 级别的分析优化（PGO），通过首先执行专用的构建以进行分析运行，然后将结果反馈到 C 编译中。注意：这是实验性的，尚不适用于 Nuitka 的独立模式。默认关闭。</p>
+</li>
+<li>
+<p><code>--pgo-args=PGO_ARGS</code>  在进行分析优化时要传递的参数。这些参数传递给在 PGO 分析运行期间使用的特殊构建可执行文件。默认为空。</p>
+</li>
+<li>
+<p><code>--pgo-executable=PGO_EXECUTABLE</code>  在收集配置文件信息时要执行的命令。仅在需要通过准备运行它的脚本来启动它时使用。默认使用创建的程序。</p>
+</li>
+</ul>
+<h2 id="reference">Reference<a class="anchor" href="#reference">§</a></h2>
+<p><a href="https://nuitka.net/">Nuitka the Python Compiler — Nuitka the Python Compiler documentation</a></p></article></section><footer></footer><script src="https://cdn.pagic.org/react@18.2.0/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@18.2.0/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
