@@ -23,13 +23,29 @@ export default {
     'contributors': [
         "rainzee"
     ],
-    'date': "2023-08-30T21:25:57.000Z",
+    'date': "2023-09-07T22:37:53.000Z",
     'updated': null,
     'excerpt': "",
     'cover': undefined,
     'blog': {
         "isPost": false,
         "posts": [
+            {
+                "pagePath": "posts/nuitka-debug-and-report.md",
+                "title": "Nuitka 调试与追踪",
+                "link": "posts/nuitka-debug-and-report.html",
+                "date": "2023-09-08T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Python",
+                    "Nuitka"
+                ],
+                "excerpt": "强大的调试与追踪控制 其实在 Nuitka 中，自带了许多强大的调试和追踪报告功能，能够允许你对程序运行的诸多细节进行追踪和调试，这对于部署真正的生产级别的代码是至关重要地。但是在中文互联网甚至是英文我鲜少有看到实际介绍..."
+            },
             {
                 "pagePath": "posts/nuitka-advanced-compilation-control.md",
                 "title": "Nuitka 高级编译控制",
@@ -176,11 +192,11 @@ export default {
         "tags": [
             {
                 "name": "Python",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "Nuitka",
-                "count": 4
+                "count": 5
             },
             {
                 "name": "Typecho",
