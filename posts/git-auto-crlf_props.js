@@ -45,6 +45,22 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/compilation-output-and-completion-control.md",
+                "title": "Nuitka 编译输出和完成时控制",
+                "link": "posts/compilation-output-and-completion-control.html",
+                "date": "2023-09-18T00:00:00.000Z",
+                "updated": null,
+                "author": "rainzee",
+                "contributors": [
+                    "rainzee"
+                ],
+                "tags": [
+                    "Python",
+                    "Nuitka"
+                ],
+                "excerpt": "编译选项和完成时行为控制 在编译完成后，我们可以立刻启动或者直接进入调试，在编译过程中我们也可以严格规定兼容 CPython，以及控制产物的输出等等。 编译完成时行为 - --run 立即执行创建的二进制文件（或导入已编译的模块）..."
+            },
+            {
                 "pagePath": "posts/nuitka-debug-and-report.md",
                 "title": "Nuitka 调试与追踪",
                 "link": "posts/nuitka-debug-and-report.html",
@@ -206,11 +222,11 @@ export default {
         "tags": [
             {
                 "name": "Python",
-                "count": 6
+                "count": 7
             },
             {
                 "name": "Nuitka",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "Typecho",
